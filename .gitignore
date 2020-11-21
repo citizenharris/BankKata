@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AccountServiceAcceptance
+/AccountServiceTests/bin/
+/AccountServiceTests/obj/
+/AccountServiceTests/Properties
+/.vs/Bank/v16
+/Bank
+/ClassLibrary1/bin/
+/ClassLibrary1/obj/
+/ClassLibrary1/Properties
+/packages
