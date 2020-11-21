@@ -6,9 +6,8 @@
 /AccountServiceTests/bin/
 /AccountServiceTests/obj/
 /AccountServiceTests/Properties
-/.vs/Bank/v16
-/Bank
-/ClassLibrary1/bin/
-/ClassLibrary1/obj/
-/ClassLibrary1/Properties
+/.vs/
+/Bank/bin/
+/Bank/obj/
+/Bank/Properties
 /packages
