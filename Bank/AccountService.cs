@@ -1,16 +1,15 @@
-﻿using System;
-using Bank.Interfaces;
+﻿using Bank.Interfaces;
 
 namespace Bank
 {
     public class AccountService : IAccountService
     {
-        private readonly IConsole _console;
+        private readonly IStatementPrinter _statementPrinter;
         private readonly ITransactionRepository _transactionRepo;
 
-        public AccountService(IConsole console, ITransactionRepository transactionRepo)
+        public AccountService(IStatementPrinter statementPrinter, ITransactionRepository transactionRepo)
         {
-            _console = console;
+            _statementPrinter = statementPrinter;
             _transactionRepo = transactionRepo;
         }
 
@@ -26,7 +25,7 @@ namespace Bank
 
         public void PrintStatement()
         {
-            throw new NotImplementedException();
+            _statementPrinter.Print(_transactionRepo.GetAllTransactions());
         }
     }
 }

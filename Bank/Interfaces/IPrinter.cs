@@ -1,6 +1,6 @@
 ﻿namespace Bank.Interfaces
 {
-    public interface IConsole
+    public interface IPrinter
     {
         public void Print(string input);
     }

@@ -45,8 +45,12 @@
   <ItemGroup>
     <Compile Include="AccountService.cs" />
     <Compile Include="Interfaces\IAccountService.cs" />
-    <Compile Include="Interfaces\IConsole.cs" />
+    <Compile Include="Interfaces\IPrinter.cs" />
+    <Compile Include="Interfaces\IDateTimeHandler.cs" />
+    <Compile Include="Interfaces\IStatementPrinter.cs" />
     <Compile Include="Interfaces\ITransactionRepository.cs" />
+    <Compile Include="StatementPrinter.cs" />
+    <Compile Include="Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionRepository.cs" />
   </ItemGroup>

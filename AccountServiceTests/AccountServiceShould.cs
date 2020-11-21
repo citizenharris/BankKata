@@ -1,4 +1,6 @@
-﻿using Bank;
+﻿using System;
+using System.Collections.Generic;
+using Bank;
 using Bank.Interfaces;
 using Moq;
 using NUnit.Framework;
@@ -7,16 +9,16 @@ namespace AccountServiceTests
 {
     public class AccountServiceShould
     {
-        private Mock<IConsole> _console;
         private Mock<ITransactionRepository> _transactionRepo;
         private AccountService _account;
+        private Mock<IStatementPrinter> _statementPrinter;
 
         [SetUp]
         public void Setup()
         {
-            _console = new Mock<IConsole>();
+            _statementPrinter = new Mock<IStatementPrinter>();
             _transactionRepo = new Mock<ITransactionRepository>();
-            _account = new AccountService(_console.Object, _transactionRepo.Object);
+            _account = new AccountService(_statementPrinter.Object, _transactionRepo.Object);
         }
 
         [Test]
@@ -31,6 +33,19 @@ namespace AccountServiceTests
         {
             _account.Withdraw(5);
             _transactionRepo.Verify(r => r.Withdraw(5), Times.Once);
+        }
+
+        [Test]
+        public void PrintAStatement()
+        {
+            var transactions = new List<Transaction>
+            {
+                new Transaction(DateTime.Now, 5),
+                new Transaction(DateTime.Now, 6)
+            };
+            _transactionRepo.Setup(r => r.GetAllTransactions()).Returns(transactions);
+            _account.PrintStatement();
+            _statementPrinter.Verify(c => c.Print(transactions), Times.Once);
         }
     }
 }
