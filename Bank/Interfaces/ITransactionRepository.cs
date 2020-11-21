@@ -2,6 +2,7 @@
 {
     public interface ITransactionRepository
     {
-        public void Deposit(int amount);
+        void Deposit(int amount);
+        void Withdraw(int amount);
     }
 }

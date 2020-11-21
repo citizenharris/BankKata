@@ -4,7 +4,7 @@
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=05bf55e8_002D0e9a_002D4e02_002Dad8d_002D306db2e2f8bf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AcceptADeposit" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::BD6F1549-8123-4A50-A3E1-1A90A62F1721::.NETFramework,Version=v4.7.2::AccountServiceTests.AccountServiceShould.AcceptADeposit&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::BD6F1549-8123-4A50-A3E1-1A90A62F1721::.NETFramework,Version=v4.7.2::AccountServiceTests.AccountServiceShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
