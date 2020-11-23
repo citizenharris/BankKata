@@ -9,6 +9,11 @@ namespace AccountServiceTests
 {
     public class AccountServiceAcceptance
     {
+        private const string StatementHeader = "Date || Amount || Balance";
+        private const string Line1           = "14/01/2012 || -500 || 2500";
+        private const string Line2           = "13/01/2012 || 2000 || 3000";
+        private const string Line3           = "10/01/2012 || 1000 || 1000";
+
         [Test]
         public void GivenHistoryAccountServicePrintsStatement()
         {
@@ -31,10 +36,10 @@ namespace AccountServiceTests
             var repo = new TransactionRepository(dateTimeHandler.Object);
             var sequence = new MockSequence();
             var account = new AccountService(statementPrinter, repo);
-            printer.InSequence(sequence).Setup(c => c.Print("Date || Amount || Balance"));
-            printer.InSequence(sequence).Setup(c => c.Print("14/01/2012 || -500 || 2500"));
-            printer.InSequence(sequence).Setup(c => c.Print("13/01/2012 || 2000 || 3000"));
-            printer.InSequence(sequence).Setup(c => c.Print("10/01/2012 || 1000 || 1000"));
+            printer.InSequence(sequence).Setup(c => c.Print(StatementHeader));
+            printer.InSequence(sequence).Setup(c => c.Print(Line1));
+            printer.InSequence(sequence).Setup(c => c.Print(Line2));
+            printer.InSequence(sequence).Setup(c => c.Print(Line3));
             
             // Act
             account.Deposit(1000);
@@ -43,10 +48,10 @@ namespace AccountServiceTests
             account.PrintStatement();
             
             // Assert
-            printer.Verify(c => c.Print("Date || Amount || Balance"));
-            printer.Verify(c => c.Print("14/01/2012 || -500 || 2500"));
-            printer.Verify(c => c.Print("13/01/2012 || 2000 || 3000"));
-            printer.Verify(c => c.Print("10/01/2012 || 1000 || 1000"));
+            printer.Verify(c => c.Print(StatementHeader));
+            printer.Verify(c => c.Print(Line1));
+            printer.Verify(c => c.Print(Line2));
+            printer.Verify(c => c.Print(Line3));
 
         }
     }

@@ -43,6 +43,7 @@ namespace AccountServiceTests
                 new Transaction(DateTime.Now, 5),
                 new Transaction(DateTime.Now, 6)
             };
+
             _transactionRepo.Setup(r => r.GetAllTransactions()).Returns(transactions);
             _account.PrintStatement();
             _statementPrinter.Verify(c => c.Print(transactions), Times.Once);

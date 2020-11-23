@@ -17,15 +17,12 @@ namespace Bank
         {
             _printer.Print("Date || Amount || Balance");
 
-            var balance = 0;
-            var toBePrinted = new List<string>();
-            foreach (var transaction in transactions.OrderBy(t => t.Timestamp))
+            var balance = transactions.Sum(t => t.Amount);
+            foreach (var transaction in transactions.OrderByDescending(t => t.Timestamp))
             {
-                balance += transaction.Amount;
-                toBePrinted.Add($"{transaction.Timestamp:d} || {transaction.Amount} || {balance}");
+                _printer.Print($"{transaction.Timestamp:d} || {transaction.Amount} || {balance}");
+                balance -= transaction.Amount;
             }
-
-            toBePrinted.ForEach(line => _printer.Print(line));
         }
     }
 }
