@@ -27,12 +27,7 @@ public class AccountServiceAcceptance
             .Returns(dateTimeQueue.Dequeue);
 
         var repo = new TransactionRepository(dateTimeHandler.Object);
-        var sequence = new MockSequence();
         var account = new AccountService(statementPrinter, repo);
-        printer.InSequence(sequence).Setup(c => c.Print(StatementHeader));
-        printer.InSequence(sequence).Setup(c => c.Print(Line1));
-        printer.InSequence(sequence).Setup(c => c.Print(Line2));
-        printer.InSequence(sequence).Setup(c => c.Print(Line3));
             
         // Act
         account.Deposit(1000);

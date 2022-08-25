@@ -5,6 +5,7 @@ namespace BankAccount;
 public class StatementPrinter : IStatementPrinter
 {
     private readonly IPrinter _printer;
+    private const string StatementHeader = "Date || Amount || Balance";
 
     public StatementPrinter(IPrinter printer)
     {
@@ -13,7 +14,7 @@ public class StatementPrinter : IStatementPrinter
 
     public void Print(IReadOnlyList<Transaction> transactions)
     {
-        _printer.Print("Date || Amount || Balance");
+        _printer.Print(StatementHeader);
 
         var balance = transactions.Sum(t => t.Amount);
         foreach (var transaction in transactions.OrderByDescending(t => t.Timestamp))
