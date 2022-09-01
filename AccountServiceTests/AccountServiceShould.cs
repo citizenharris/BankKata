@@ -2,9 +2,9 @@
 
 public class AccountServiceShould
 {
-    private Mock<ITransactionRepository> _transactionRepo;
-    private AccountService _account;
-    private Mock<IStatementPrinter> _statementPrinter;
+    private Mock<ITransactionRepository> _transactionRepo = null!;
+    private AccountService _account = null!;
+    private Mock<IStatementPrinter> _statementPrinter = null!;
 
     [SetUp]
     public void Setup()

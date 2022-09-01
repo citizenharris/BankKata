@@ -12,7 +12,7 @@ public class StatementPrinter : IStatementPrinter
         _printer = printer;
     }
 
-    public void Print(IReadOnlyList<Transaction> transactions)
+    public void Print(IReadOnlyCollection<Transaction> transactions)
     {
         _printer.Print(StatementHeader);
 

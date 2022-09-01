@@ -4,8 +4,8 @@ namespace AccountServiceTests;
 
 public class StatementPrinterShould
 {
-    private StatementPrinter _statementPrinter;
-    private Mock<IPrinter> _printer;
+    private StatementPrinter _statementPrinter = null!;
+    private Mock<IPrinter> _printer = null!;
 
     private const string StatementHeader = "Date || Amount || Balance";
 

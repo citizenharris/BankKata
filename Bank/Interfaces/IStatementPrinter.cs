@@ -2,5 +2,5 @@
 
 public interface IStatementPrinter
 {
-    public void Print(IReadOnlyList<Transaction> transactions);
+    public void Print(IReadOnlyCollection<Transaction> transactions);
 }

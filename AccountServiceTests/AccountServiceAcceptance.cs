@@ -13,15 +13,14 @@ public class AccountServiceAcceptance
         // Arrange
         var printer = new Mock<IPrinter>(MockBehavior.Strict);
         var statementPrinter = new StatementPrinter(printer.Object);
-        var dateTimeHandler = new Mock<IDateTimeHandler>();
 
+        var dateTimeHandler = new Mock<IDateTimeHandler>();
         var dateTimeQueue = new Queue<DateTime>(new[]
         {
             new DateTime(2012, 01, 10),
             new DateTime(2012, 01, 13),
             new DateTime(2012, 01, 14)
         });
-
         dateTimeHandler
             .Setup(dth => dth.Now())
             .Returns(dateTimeQueue.Dequeue);
