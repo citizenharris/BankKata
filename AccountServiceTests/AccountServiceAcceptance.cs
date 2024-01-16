@@ -3,9 +3,9 @@ namespace AccountServiceTests;
 public class AccountServiceAcceptance
 {
     private const string StatementHeader = "Date || Amount || Balance";
-    private const string Line1           = "14/01/2012 || -500 || 2500";
-    private const string Line2           = "13/01/2012 || 2000 || 3000";
-    private const string Line3           = "10/01/2012 || 1000 || 1000";
+    private const string Line1 = "14/01/2012 || -500 || 2500";
+    private const string Line2 = "13/01/2012 || 2000 || 3000";
+    private const string Line3 = "10/01/2012 || 1000 || 1000";
 
     [Test]
     public void GivenHistoryAccountServicePrintsStatement()
@@ -31,7 +31,7 @@ public class AccountServiceAcceptance
         printer.InSequence(sequence).Setup(c => c.Print(Line1));
         printer.InSequence(sequence).Setup(c => c.Print(Line2));
         printer.InSequence(sequence).Setup(c => c.Print(Line3));
-        
+
         var account = new AccountService(statementPrinter, repo);
 
         // Act
