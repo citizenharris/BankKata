@@ -31,15 +31,17 @@ public class AccountServiceShould
     [Test]
     public void PrintAStatement()
     {
-        var transactions = new List<Transaction>
-        {
+        List<Transaction> transactions =
+        [
             new(DateTime.Now, 5),
             new(DateTime.Now, 6)
-        };
-        _transactionRepo.Setup(r => r.GetAllTransactions()).Returns(transactions);
-        
+        ];
+        _transactionRepo
+            .Setup(r => r.GetAllTransactions())
+            .Returns(transactions);
+
         _account.PrintStatement();
-        
+
         _statementPrinter.Verify(c => c.Print(transactions), Times.Once);
     }
 }

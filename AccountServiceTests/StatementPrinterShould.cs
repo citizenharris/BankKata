@@ -19,7 +19,7 @@ public class StatementPrinterShould
     [Test]
     public void PrintStatementWithNoTransactions()
     {
-        var transactions = new List<Transaction>();
+        List<Transaction> transactions = [];
 
         _statementPrinter.Print(new ReadOnlyCollection<Transaction>(transactions));
 
@@ -29,10 +29,7 @@ public class StatementPrinterShould
     [Test]
     public void PrintStatementWithTransactions()
     {
-        var transactions = new List<Transaction>
-        {
-            new(new DateTime(2012, 1, 10), 1000)
-        };
+        List<Transaction> transactions = [new(new DateTime(2012, 1, 10), 1000)];
 
         var sequence = new MockSequence();
         _printer.InSequence(sequence).Setup(p => p.Print(StatementHeader));
